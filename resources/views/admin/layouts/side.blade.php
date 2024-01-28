@@ -27,6 +27,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('admin/dashboard/categories*') ? 'bg-warning' : '' }}"
+                        href="/admin/dashboard/categories">
+                        <svg class="bi">
+                            <use xlink:href="#file-earmark-text" />
+                        </svg>
+                        Category
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('admin/dashboard/users*') ? 'bg-warning' : '' }}"
                         href="/admin/dashboard/users">
                         <svg class="bi">

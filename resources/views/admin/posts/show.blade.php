@@ -11,16 +11,30 @@
                 @csrf
                 <button onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</button>
             </form>
-
-
+            <div class="mt-3 mb-3">
+                <h4><b>Meta Description</b></h4>
+                @if ($post->meta_description != null)
+                    <p>{{ $post->meta_description }}</p>
+                @else
+                    <p>No Meta Description</p>
+                @endif
+            </div>
             @if ($post->image == null)
                 <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="img-fluid"
                     alt="{{ $post->category->name }}">
             @else
                 <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid" alt="{{ $post->category->name }}">
             @endif
-
+            <div class="mt-3 mb-3">
+                <h4><b>Alt Image</b></h4>
+                @if ($post->altimage != null)
+                    <p>{{ $post->altimage }}</p>
+                @else
+                    <p>No Alt Image</p>
+                @endif
+            </div>
             <article class="my-3">
+                <h4><b>Article</b></h4>
                 {!! $post->body !!}
             </article>
         </div>

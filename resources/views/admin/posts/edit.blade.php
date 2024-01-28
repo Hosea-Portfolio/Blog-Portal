@@ -9,7 +9,7 @@
         @method('put')
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label">Title</label><span style="color:red">*</span>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
                 value="{{ old('title', $post->title) }}" autofocus>
             @error('title')
@@ -19,7 +19,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="slug" class="form-label">Slug</label>
+            <label for="slug" class="form-label">Slug</label><span style="color:red">*</span>
             <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name='slug'
                 value="{{ old('slug', $post->slug) }}" readonly>
             @error('slug')
@@ -29,7 +29,12 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="category" class="form-label">Category</label>
+            <label for="metadescription" class="form-label">Meta Description</label>
+            <textarea class="form-control @error('metadescription') is-invalid @enderror" id="metadescription" style="height: 100px"
+                name="metadescription">{{ old('meta_description', $post->meta_description) }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label><span style="color:red">*</span>
             <select class="form-select" name='category_id'>
                 @foreach ($categories as $category)
                     @if (old('category_id', $post->category_id) == $category->id)
@@ -40,26 +45,35 @@
                 @endforeach
             </select>
         </div>
-
-        <div class="mb-3">
-            <label for="image" class="form-label">Post Image</label>
-            <input type="hidden" name="oldImage" value={{ $post->image }}>
-            @if ($post->image)
-                <img src ="{{ asset('storage/' . $post->image) }}"class="img-preview img-fluid mb-3 col-sm-5 d-block">
-            @else
-                <img class="img-preview img-fluid mb-3 col-sm-5">
-            @endif
-            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-                onchange="previewImage()">
-        </div>
-        @error('image')
-            <div class="invalid-feedback">
-                {{ $message }}
+        <div class="d-flex gap-3">
+            <div class="col-sm ">
+                <div class="mb-3">
+                    <label for="image" class="form-label">Post Image</label><span style="color:red">*</span>
+                    <input type="hidden" name="oldImage" value={{ $post->image }}>
+                    <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                        name="image" onchange="previewImage()">
+                </div>
+                @error('image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+                @if ($post->image)
+                    <img src ="{{ asset('storage/' . $post->image) }}"class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
             </div>
-        @enderror
-
+            <div class="col-sm ">
+                <div class="mb-3">
+                    <label for="altimage" class="form-label">Alt Image</label>
+                    <input type="text" class="form-control @error('altimage') is-invalid @enderror" id="altimage"
+                        name="altimage" value="{{ old('altimage', $post->altimage) }}">
+                </div>
+            </div>
+        </div>
         <div class="mb-3">
-            <label for="slug" class="form-label">Body</label>
+            <label for="slug" class="form-label">Body</label><span style="color:red">*</span>
             @error('body')
                 <p class="text-danger">
                     {{ $message }}

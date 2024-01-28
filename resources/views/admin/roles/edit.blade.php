@@ -10,7 +10,7 @@
         @csrf
 
         <div class="mb-3  w-100">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label">Name</label><span style="color:red">*</span>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                 value="{{ old('name', $role->name) }}" autofocus>
             @error('name')

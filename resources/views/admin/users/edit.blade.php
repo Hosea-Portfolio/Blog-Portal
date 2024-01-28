@@ -9,7 +9,7 @@
         @method('put')
         @csrf
         <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
+            <label for="role" class="form-label">Role</label><span style="color:red">*</span>
             <select class="form-select" name='role_id'>
                 @foreach ($roles as $role)
                     @if (old('role_id', $user->role_id) == $role->id)
@@ -23,7 +23,7 @@
 
         <div class="d-flex justify-content-between" style="gap:10px">
             <div class="mb-3  w-100">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label">Name</label><span style="color:red">*</span>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     value="{{ old('name', $user->name) }}" autofocus>
                 @error('name')
@@ -33,7 +33,7 @@
                 @enderror
             </div>
             <div class="mb-3 w-100">
-                <label for="username" class="form-label">Username</label>
+                <label for="username" class="form-label">Username</label><span style="color:red">*</span>
                 <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
                     name='username' value="{{ old('username', $user->username) }}" autofocus>
                 @error('username')
@@ -46,7 +46,7 @@
 
         <div class="d-flex justify-content-between" style="gap:10px">
             <div class="mb-3  w-100">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">Email</label><span style="color:red">*</span>
                 <input type="mail" class="form-control @error('email') is-invalid @enderror" id="email"
                     name="email" value="{{ old('email', $user->email) }}" autofocus>
                 @error('email')
@@ -56,7 +56,7 @@
                 @enderror
             </div>
             <div class="mb-3  w-100">
-                <label for="password" class="form-label">Password</label>
+                <label for="password" class="form-label">Password</label><span style="color:red">*</span>
                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
                     name='password' value="{{ old('password', $user->password) }}" autofocus>
                 @error('password')

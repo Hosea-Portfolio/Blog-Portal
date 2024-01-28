@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardPostController;
@@ -18,7 +19,9 @@ use App\Http\Controllers\DashboardPostController;
 */
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard.index');
+    return view('admin.dashboard.index', [
+        'active' => 'Dashboard Blog Portal'
+    ]);
 });
 
 Route::get('/admin/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
@@ -33,6 +36,10 @@ Route::get('/admin/dashboard/users/publish/{id}', [UserController::class, 'publi
 Route::resource('/admin/dashboard/roles', RoleController::class);
 Route::get('/admin/dashboard/roles/unpublish/{id}', [RoleController::class, 'unpublish']);
 Route::get('/admin/dashboard/roles/publish/{id}', [RoleController::class, 'publish']);
+
+Route::resource('/admin/dashboard/categories', CategoryController::class);
+Route::get('/admin/dashboard/categories/unpublish/{id}', [CategoryController::class, 'unpublish']);
+Route::get('/admin/dashboard/categories/publish/{id}', [CategoryController::class, 'publish']);
 
 
 

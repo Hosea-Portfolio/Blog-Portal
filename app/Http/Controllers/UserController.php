@@ -16,7 +16,8 @@ class UserController extends Controller
     public function index()
     {
         return view('admin.users.index', [
-            'users' =>   User::with('Role')->get()
+            'users' =>   User::with('Role')->get(),
+            'active' => 'User Module'
             // 'posts' => Post::where('user_id', auth()->user()->id)->get()
 
         ]);
@@ -31,6 +32,8 @@ class UserController extends Controller
     {
         return view('admin.users.create', [
             'roles' => Role::all(),
+            'active' => 'Add User'
+
         ]);
     }
 
@@ -80,6 +83,8 @@ class UserController extends Controller
         return view('admin.users.edit', [
             'user' => $user,
             'roles' => Role::all(),
+            'active' => 'Edit User'
+
         ]);
     }
 

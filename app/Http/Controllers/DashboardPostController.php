@@ -21,6 +21,7 @@ class DashboardPostController extends Controller
     {
         return view('admin.posts.index', [
             'posts' =>   Post::all(),
+            'active' => 'Post Module'
             // 'posts' => Post::where('user_id', auth()->user()->id)->get()
 
         ]);
@@ -35,6 +36,7 @@ class DashboardPostController extends Controller
     {
         return view('admin.posts.create', [
             'categories' => Category::all(),
+            'active' => 'Add Post'
         ]);
     }
 
@@ -62,6 +64,8 @@ class DashboardPostController extends Controller
         // $validatedData['user_id'] = auth()->user()->id;
         $validatedData['user_id'] = 1;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...');
+        $validatedData['meta_description'] = $request->metadescription;
+        $validatedData['altimage'] = $request->altimage;
 
         Post::create($validatedData);
 
@@ -78,6 +82,7 @@ class DashboardPostController extends Controller
     {
         return view('admin.posts.show', [
             'post' => $post,
+            'active' => 'Show Post'
         ]);
     }
 
@@ -92,6 +97,7 @@ class DashboardPostController extends Controller
         return view('admin.posts.edit', [
             'post' => $post,
             'categories' => Category::all(),
+            'active' => 'Edit Post'
         ]);
     }
 
@@ -127,6 +133,8 @@ class DashboardPostController extends Controller
         // $validatedData['user_id'] = auth()->user()->id;
         $validatedData['user_id'] = 1;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...');
+        $validatedData['meta_description'] = $request->metadescription;
+        $validatedData['altimage'] = $request->altimage;
 
         Post::where('id', $post->id)
             ->update($validatedData);

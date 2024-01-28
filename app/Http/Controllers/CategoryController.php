@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin.roles.index', [
-            'roles' => Role::all(),
-            'active' => 'Role Module'
+        return view('admin.category.index', [
+            'categories' => Category::all(),
+            'active' => 'Category Module'
         ]);
     }
 
@@ -27,9 +27,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.roles.create', [
-            'roles' => Role::all(),
-            'active' => 'Add Role'
+        return view('admin.category.create', [
+            'categories' => Category::all(),
+            'active' => 'Add Category'
         ]);
     }
 
@@ -39,15 +39,15 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Role $role)
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255|unique:roles,name',
+            'name' => 'required|max:255|unique:category,name',
         ]);
 
-        Role::create($validatedData);
+        Category::create($validatedData);
 
-        return redirect('/admin/dashboard/roles')->with('success', 'New Role has been added!');
+        return redirect('/admin/dashboard/categories')->with('success', 'New Category has been added!');
     }
 
     /**
@@ -67,11 +67,11 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id, Category $category)
     {
-        return view('admin.roles.edit', [
-            'role' => $role,
-            'active' => 'Edit'
+        return view('admin.category.edit', [
+            'category' => $category,
+            'active' => 'Edit Category'
         ]);
     }
 
@@ -82,16 +82,16 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id, Category $category)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255|unique:roles,name',
+            'name' => 'required|max:255|unique:categories,name',
 
         ]);
 
-        Role::where('id', $role->id)
+        Category::where('id', $category->id)
             ->update($validatedData);
-        return redirect('/admin/dashboard/roles')->with('success', 'Role has been updated!');
+        return redirect('/admin/dashboard/categories')->with('success', 'Category has been updated!');
     }
 
     /**
@@ -100,27 +100,29 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
-    {
-        Role::destroy($role->id);
 
-        return redirect('/admin/dashboard/roles')->with('success', 'User has been deleted!');
+
+    public function destroy(Category $category)
+    {
+        Category::destroy($category->id);
+
+        return redirect('/admin/dashboard/categories')->with('success', 'Category has been deleted!');
     }
 
     public function unpublish($id)
     {
-        $data = Role::find($id);
+        $data = Category::find($id);
 
         $data->active = 0;
         $data->save();
-        return redirect('/admin/dashboard/roles');
+        return redirect('/admin/dashboard/category');
     }
     public function publish($id)
     {
-        $data = Role::find($id);
+        $data = Category::find($id);
 
         $data->active = 1;
         $data->save();
-        return redirect('/admin/dashboard/roles');
+        return redirect('/admin/dashboard/categories');
     }
 }
