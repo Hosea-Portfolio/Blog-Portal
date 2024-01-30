@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CategoryController extends Controller
 {
@@ -42,7 +43,9 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255|unique:category,name',
+            'name' => 'required|max:255|',
+            'slug' => 'required|unique:category',
+
         ]);
 
         Category::create($validatedData);
@@ -67,7 +70,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Category $category)
+    public function edit(Category $category)
     {
         return view('admin.category.edit', [
             'category' => $category,
@@ -82,7 +85,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Category $category)
+    public function update(Request $request, Category $category)
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255|unique:categories,name',
@@ -109,13 +112,20 @@ class CategoryController extends Controller
         return redirect('/admin/dashboard/categories')->with('success', 'Category has been deleted!');
     }
 
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
+        return response()->json(['slug' => $slug]);
+    }
+
     public function unpublish($id)
     {
         $data = Category::find($id);
 
         $data->active = 0;
         $data->save();
-        return redirect('/admin/dashboard/category');
+        return redirect('/admin/dashboard/categories');
     }
     public function publish($id)
     {

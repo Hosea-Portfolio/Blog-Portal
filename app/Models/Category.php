@@ -9,9 +9,26 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'category';
     protected $guarded = ['id'];
+
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    //jika menggunakan resoruce lalu ingin menggunakan slug untuk url pake function di bawah
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+    //automatatic slug
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }

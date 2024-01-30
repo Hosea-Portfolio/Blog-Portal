@@ -39,7 +39,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Role $role)
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255|unique:roles,name',

@@ -25,6 +25,7 @@ Route::get('/admin/dashboard', function () {
 });
 
 Route::get('/admin/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
+Route::get('/admin/dashboard/categories/checkSlug', [CategoryController::class, 'checkSlug']);
 Route::resource('/admin/dashboard/posts', DashboardPostController::class);
 Route::get('/admin/dashboard/posts/unpublish/{id}', [UserController::class, 'unpublish']);
 Route::get('/admin/dashboard/posts/publish/{id}', [UserController::class, 'publish']);
