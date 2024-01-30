@@ -11,7 +11,17 @@ class BlogController extends Controller
     {
         return view('website.home', [
             'posts' =>   Post::all(),
+            'active' => 'Blog Home'
 
+        ]);
+    }
+
+    public function show($slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+        return view('website.detail-blog', [
+            'post' =>   $post,
+            'active' => $post->title
         ]);
     }
 }

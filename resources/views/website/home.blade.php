@@ -29,7 +29,9 @@
                         </div>
                         <div class="content-blog">
                             <span class="category">{{ $post->category->name }}</span>
-                            <h2 class="blog-title">{{ $post->title }}</h2>
+                            <a href="{{ $post->slug }}" style="text-decoration:none; color:black">
+                                <h2 class="blog-title">{{ $post->title }}</h2>
+                            </a>
                             <time class="post-time"
                                 datetime="{{ $post->created_at }}">{{ date('d/m/Y', strtotime($post->created_at)) }}</time>
                             <p>{{ $post->excerpt }}</p>

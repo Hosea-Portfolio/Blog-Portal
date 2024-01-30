@@ -8,7 +8,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 20px;
-        margin: 0 80px;
+        margin: 0 220px;
     }
 
     .card-blog {

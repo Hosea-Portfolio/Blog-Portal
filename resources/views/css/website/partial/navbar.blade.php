@@ -49,7 +49,7 @@
     .box .icon-search {
         position: absolute;
         top: 50px;
-        right: 79px;
+        right: 220px;
         transform: translate(-50%, -50%);
         transition: .2s;
     }
@@ -65,7 +65,7 @@
     .flex-nav {
         display: flex;
         justify-content: space-between;
-        margin: 0 80px;
+        margin: 0 220px;
     }
 
     .logo-image {
