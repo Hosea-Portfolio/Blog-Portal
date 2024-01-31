@@ -23,7 +23,9 @@ class CreatePostsTable extends Migration
             $table->string('altimage')->nullable();
             $table->text('excerpt');
             $table->text('body');
+            $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
+            $table->integer('like_counter')->nullable();
             $table->tinyInteger('active')->default(1);
             $table->timestamps();
         });

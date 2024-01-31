@@ -16,7 +16,7 @@
     <div class="container">
         <div class="blog-container">
             @foreach ($posts as $post)
-                <div class="card-blog">
+                <div class="card-blog" id="{{ $post->id }}">
                     <div class="card-content">
                         <div class="image-blog">
                             @if ($post->image == null)
@@ -38,7 +38,22 @@
                         </div>
                     </div>
                     <div class="post-footer">
-                        <a class="icon-post-footer">@include('fa.love')</a>
+
+                        {{-- Code untuk like satu kali attempt per sesi --}}
+                        {{-- @if (Session::get('sesi_token') == $syslog->session_id)
+                            <a href='#'class="icon-post-footer"
+                                style="fill: :red">@include('fa.love')</a>
+                        @else
+                            <a
+                                href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.love')</a>
+                        @endif --}}
+                        {{-- Code untuk like satu kali attempt per sesi --}}
+
+                        <a
+                            href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.like')</a>
+                        <span>{{ $post->like_counter }}</span>
+                        <a
+                            href='{{ url('/dislike', $post->id) }}'class="icon-post-footer">@include('fa.dislike')</a>
                         <span>|</span>
                         <a class="icon-post-footer">@include('fa.facebook')</a>
                         <a class="icon-post-footer">@include('fa.link')</a>

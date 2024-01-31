@@ -25,7 +25,6 @@
                             @if ($role->active == 1)
                                 <a href='{{ url('/admin/dashboard/roles/unpublish', $role->id) }}'
                                     class="btn btn-success btn-sm">Active</a>
-                                </form>
                             @else
                                 <a href='{{ url('/admin/dashboard/roles/publish', $role->id) }}'
                                     class="btn btn-secondary btn-sm">Inactive</a>

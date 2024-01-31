@@ -45,4 +45,6 @@ Route::get('/admin/dashboard/categories/publish/{id}', [CategoryController::clas
 
 
 Route::get('/', [BlogController::class, 'index']);
+Route::get('/like/{id}', [BlogController::class, 'like']);
+Route::get('/dislike/{id}', [BlogController::class, 'dislike']);
 Route::get('/{slug}', [BlogController::class, 'show']);
