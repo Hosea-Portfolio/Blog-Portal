@@ -25,7 +25,6 @@ Route::get('/admin/dashboard', function () {
 });
 
 Route::get('/admin/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
-Route::get('/admin/dashboard/categories/checkSlug', [CategoryController::class, 'checkSlug']);
 Route::resource('/admin/dashboard/posts', DashboardPostController::class);
 Route::get('/admin/dashboard/posts/unpublish/{id}', [UserController::class, 'unpublish']);
 Route::get('/admin/dashboard/posts/publish/{id}', [UserController::class, 'publish']);
@@ -38,6 +37,7 @@ Route::resource('/admin/dashboard/roles', RoleController::class);
 Route::get('/admin/dashboard/roles/unpublish/{id}', [RoleController::class, 'unpublish']);
 Route::get('/admin/dashboard/roles/publish/{id}', [RoleController::class, 'publish']);
 
+Route::get('/admin/dashboard/categories/checkSlug', [CategoryController::class, 'checkSlug']);
 Route::resource('/admin/dashboard/categories', CategoryController::class);
 Route::get('/admin/dashboard/categories/unpublish/{id}', [CategoryController::class, 'unpublish']);
 Route::get('/admin/dashboard/categories/publish/{id}', [CategoryController::class, 'publish']);

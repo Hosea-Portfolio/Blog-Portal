@@ -33,7 +33,7 @@
                         </td>
                         <td>
                             <div class="d-flex flex-wrap">
-                                <a href="/admin/dashboard/categories/{{ $category->id }}/edit"
+                                <a href="/admin/dashboard/categories/{{ $category->slug }}/edit"
                                     class="text-decoration-none text-primary"><span
                                         class="bi
                                     bi-pencil-fill"></span></a>

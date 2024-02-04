@@ -13,7 +13,7 @@ class BlogController extends Controller
     public function index()
     {
         return view('website.home', [
-            'posts' =>   Post::all(),
+            'posts' => Post::latest()->filter(request(['search']))->get(),
             'active' => 'Blog Home'
 
         ]);
@@ -22,8 +22,11 @@ class BlogController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+
+        $popular = Post::where('category_id', '=', $post->category_id)->where('slug', '!=', $slug)->orderBy('like_counter', 'DESC')->take(3)->get();
         return view('website.detail-blog', [
             'post' =>   $post,
+            'popular' => $popular,
             'active' => $post->title
         ]);
     }

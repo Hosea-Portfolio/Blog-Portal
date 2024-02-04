@@ -15,8 +15,11 @@
         box-shadow: 0 2px 9px -1px rgba(0, 0, 0, 0.04);
         border-bottom-color: #efefef;
         width: 100%;
+    }
 
-
+    a {
+        text-decoration: none;
+        color: #000
     }
 
     /* search */
@@ -42,15 +45,13 @@
     }
 
     .box:hover input {
-        width: 350px;
+        width: 250px;
         border-radius: 10px;
     }
 
     .box .icon-search {
-        position: absolute;
-        top: 50px;
-        right: 220px;
-        transform: translate(-50%, -50%);
+
+        transform: translate(-151%, 1%);
         transition: .2s;
     }
 
@@ -121,9 +122,38 @@
         display: none;
     }
 
+    @media screen and (max-width: 1250px) {
+        .flex-nav {
+            margin: 0 50px
+        }
+
+        .box:hover input {
+            width: 250px;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .flex-nav {
+            margin: 0 30px
+        }
+
+        .box:hover input {
+            width: 250px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .flex-nav {
+            margin: 0 20px
+        }
+
+        .box:hover input {
+            width: 150px;
+        }
+    }
 
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
         .responsive-icon {
             display: block;
         }
@@ -136,7 +166,8 @@
             overflow: auto;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
-            top: 95px;
+            top: 94px;
+            left: 0;
         }
 
         .topnav a {
@@ -150,6 +181,12 @@
             display: block;
         }
 
+        .flex-nav {
+            margin: 0 10px
+        }
 
+        .box:hover input {
+            width: 220px;
+        }
     }
 </style>

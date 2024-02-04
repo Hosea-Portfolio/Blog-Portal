@@ -75,4 +75,30 @@
     .icon-post-footer:first-child {
         margin-right: 20px
     }
+
+    @media screen and (max-width: 1250px) {
+        .blog-container {
+            margin: 0 50px
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .blog-container {
+            margin: 0 30px
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .blog-container {
+            margin: 0 20px
+        }
+    }
+
+
+    @media screen and (max-width: 700px) {
+        .blog-container {
+            margin: 0 10px;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
 </style>

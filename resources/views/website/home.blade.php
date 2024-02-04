@@ -15,51 +15,55 @@
 
     <div class="container">
         <div class="blog-container">
-            @foreach ($posts as $post)
-                <div class="card-blog" id="{{ $post->id }}">
-                    <div class="card-content">
-                        <div class="image-blog">
-                            @if ($post->image == null)
-                                <img src="https://source.unsplash.com/400x600?{{ $post->category->name }}"
-                                    class="img-thumbnail" alt="{{ $post->category->name }}">
-                            @else
-                                <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail"
-                                    alt="{{ $post->category->name }}">
-                            @endif
+            @if ($posts->count())
+                @foreach ($posts as $post)
+                    <div class="card-blog" id="{{ $post->id }}">
+                        <div class="card-content">
+                            <div class="image-blog">
+                                @if ($post->image == null)
+                                    <img src="https://source.unsplash.com/400x600?{{ $post->category->name }}"
+                                        class="img-thumbnail" alt="{{ $post->category->name }}">
+                                @else
+                                    <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail"
+                                        alt="{{ $post->category->name }}">
+                                @endif
+                            </div>
+                            <div class="content-blog">
+                                <span class="category">{{ $post->category->name }}</span>
+                                <a href="{{ $post->slug }}" style="text-decoration:none; color:black">
+                                    <h2 class="blog-title">{{ $post->title }}</h2>
+                                </a>
+                                <time class="post-time"
+                                    datetime="{{ $post->created_at }}">{{ date('d/m/Y', strtotime($post->created_at)) }}</time>
+                                <p>{{ $post->excerpt }}</p>
+                            </div>
                         </div>
-                        <div class="content-blog">
-                            <span class="category">{{ $post->category->name }}</span>
-                            <a href="{{ $post->slug }}" style="text-decoration:none; color:black">
-                                <h2 class="blog-title">{{ $post->title }}</h2>
-                            </a>
-                            <time class="post-time"
-                                datetime="{{ $post->created_at }}">{{ date('d/m/Y', strtotime($post->created_at)) }}</time>
-                            <p>{{ $post->excerpt }}</p>
-                        </div>
-                    </div>
-                    <div class="post-footer">
+                        <div class="post-footer">
 
-                        {{-- Code untuk like satu kali attempt per sesi --}}
-                        {{-- @if (Session::get('sesi_token') == $syslog->session_id)
+                            {{-- Code untuk like satu kali attempt per sesi --}}
+                            {{-- @if (Session::get('sesi_token') == $syslog->session_id)
                             <a href='#'class="icon-post-footer"
                                 style="fill: :red">@include('fa.love')</a>
                         @else
                             <a
                                 href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.love')</a>
                         @endif --}}
-                        {{-- Code untuk like satu kali attempt per sesi --}}
+                            {{-- Code untuk like satu kali attempt per sesi --}}
 
-                        <a
-                            href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.like')</a>
-                        <span>{{ $post->like_counter }}</span>
-                        <a
-                            href='{{ url('/dislike', $post->id) }}'class="icon-post-footer">@include('fa.dislike')</a>
-                        <span>|</span>
-                        <a class="icon-post-footer">@include('fa.facebook')</a>
-                        <a class="icon-post-footer">@include('fa.link')</a>
+                            <a
+                                href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.like')</a>
+                            <span>{{ $post->like_counter }}</span>
+                            <a
+                                href='{{ url('/dislike', $post->id) }}'class="icon-post-footer">@include('fa.dislike')</a>
+                            <span>|</span>
+                            <a class="icon-post-footer">@include('fa.facebook')</a>
+                            <a class="icon-post-footer">@include('fa.link')</a>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @else
+                <h1> Not Found </h1>
+            @endif
 
         </div>
     </div>

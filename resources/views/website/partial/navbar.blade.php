@@ -4,7 +4,7 @@
             <img src="dummy-logo-1b.png" class="logo-image">
         </div>
         <div class="topnav" id="myTopnav">
-            <a href="#home">All Blog</a>
+            <a href="/" class="{{ $active === 'Blog Home' ? 'active' : '' }}">All Blog</a>
             <a href="#news">Category</a>
             <a href="#about">About</a>
         </div>
@@ -14,8 +14,9 @@
             </a>
             <span>|</span>
             <div class="box">
-                <form name="search">
-                    <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
+                <form name="search" action="/" method="GET">
+                    <input type="text" class="input" name="search" value="{{ request('search') }}"
+                        onmouseout="this.value = ''; this.blur();">
                 </form>
                 <div class="icon-search">
                     @include('fa.search')

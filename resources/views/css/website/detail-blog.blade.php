@@ -57,5 +57,136 @@
 
     .article-body {
         margin: 0 220px;
+        display: flex;
+        gap: 20px
+    }
+
+    ;
+
+    .article-body .body {
+        width: 70%;
+    }
+
+
+    .icon-bar {
+        position: fixed;
+        top: 55%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 0;
+    }
+
+    .icon-bar a {
+        display: block;
+        text-align: center;
+        padding: 16px;
+        transition: all 0.3s ease;
+        font-size: 20px;
+    }
+
+    .icon-bar a:hover {
+        background-color: #000;
+    }
+
+    .facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+    .twitter {
+        background: #000;
+        color: white;
+    }
+
+    .linkedin {
+        background: #0078D4;
+        color: white;
+    }
+
+    .article-body .popular-issues {
+        width: 30%
+    }
+
+    .popular-issues .container-issues {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%
+    }
+
+    .popular-issues .container-issues .blog-popular {
+        display: flex;
+        gap: 10px
+    }
+
+    .popular-issues .container-issues .blog-popular .img-banner {
+        width: 100px;
+        height: 100px;
+    }
+
+    @media screen and (max-width: 1250px) {
+        .article-body {
+            margin: 0 50px
+        }
+
+        .icon-bar a {
+            padding: 12px;
+            font-size: 10px;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .article-body {
+            margin: 0 30px;
+        }
+
+        .icon-bar a {
+            padding: 12px;
+            font-size: 10px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .article-body {
+            margin: 0 20px;
+            flex-direction: column;
+        }
+
+        .icon-bar a {
+            padding: 10px;
+            font-size: 8px;
+        }
+    }
+
+
+    @media screen and (max-width: 700px) {
+
+        .article-body {
+            margin: 0 10px;
+            flex-direction: column;
+        }
+
+        .banner-detail-blog {
+            height: 250px
+        }
+
+        .content-title {
+            max-width: none;
+            padding: 0;
+        }
+
+        .post-title {
+            font-size: 24px;
+        }
+
+        .post-category {
+            font-size: 16px;
+        }
+
+        .icon-bar a {
+            padding: 4px;
+            font-size: 0px;
+        }
     }
 </style>
