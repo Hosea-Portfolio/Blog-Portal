@@ -132,9 +132,7 @@
             font-size: 15px
         }
 
-        .btn-block {
-            colro: #fff;
-        }
+
 
         @media screen and (max-width: 992px) {
             .card1 {
