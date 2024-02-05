@@ -132,6 +132,10 @@
             font-size: 15px
         }
 
+        .btn-block {
+            colro: #fff;
+        }
+
         @media screen and (max-width: 992px) {
             .card1 {
                 width: 100%;
@@ -174,27 +178,30 @@
                         <div class="col-md-8 col-10 my-5">
 
                             <h6 class="msg-info">Please login to your account</h6>
-                            <div class="form-group"> <label class="form-control-label text-muted">Name</label>
-                                <input type="text" id="name" name="name" class="form-control">
-                            </div>
-                            <div class="form-group"> <label class="form-control-label text-muted">Email</label>
-                                <input type="email" id="email" name="email" class="form-control">
-                            </div>
-                            <div class="form-group"> <label class="form-control-label text-muted">Username</label>
-                                <input type="text" id="username" name="username" class="form-control">
-                            </div>
-                            <div class="form-group"> <label class="form-control-label text-muted">Password</label>
-                                <input type="password" id="password" name="password" class="form-control">
-                            </div>
-                            <div class="form-group"> <label class="form-control-label text-muted">Confirm
-                                    Password</label>
-                                <input type="confirmpassword" id="confirmpassword" name="confirmpassword"
-                                    class="form-control">
-                            </div>
-                            <div class="row justify-content-center my-3 px-3"> <button
-                                    class="btn-block btn-color">Register
-                                </button> </div>
+                            <form action="/admin/register" method="post">
+                                @csrf
+                                <div class="form-group"> <label class="form-control-label text-muted">Name</label>
+                                    <input type="text" id="name" name="name" class="form-control">
+                                </div>
+                                <div class="form-group"> <label class="form-control-label text-muted">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control">
+                                </div>
+                                <div class="form-group"> <label class="form-control-label text-muted">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control">
+                                </div>
+                                <div class="form-group"> <label class="form-control-label text-muted">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control">
+                                </div>
+                                <div class="form-group"> <label class="form-control-label text-muted">Confirm
+                                        Password</label>
+                                    <input type="password" id="confirmpassword" name="confirmpassword"
+                                        class="form-control">
+                                </div>
+                                <div class="row justify-content-center my-3 px-3"> <input type="submit"
+                                        class="btn-block btn-color" value="Register">
 
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <a href="/admin/sign-in">Back to Login</a>

@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +20,11 @@ use App\Http\Controllers\DashboardPostController;
 |
 */
 
-Route::get('/admin/sign-in', function () {
-    return view('admin.sign-in.sign-in', [
-        'active' => 'Dashboard Blog Portal'
-    ]);
-});
-Route::get('/admin/register', function () {
-    return view('admin.register.register', [
-        'active' => 'Dashboard Blog Portal'
-    ]);
-});
+Route::get('/admin/sign-in', [LoginController::class, 'index']);
+
+Route::get('/admin/register', [RegisterController::class, 'index']);
+Route::post('/admin/register', [RegisterController::class, 'store']);
+
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard.index', [
         'active' => 'Dashboard Blog Portal'
