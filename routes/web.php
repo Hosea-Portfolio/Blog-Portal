@@ -18,6 +18,16 @@ use App\Http\Controllers\DashboardPostController;
 |
 */
 
+Route::get('/admin/sign-in', function () {
+    return view('admin.sign-in.sign-in', [
+        'active' => 'Dashboard Blog Portal'
+    ]);
+});
+Route::get('/admin/register', function () {
+    return view('admin.register.register', [
+        'active' => 'Dashboard Blog Portal'
+    ]);
+});
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard.index', [
         'active' => 'Dashboard Blog Portal'
