@@ -21,6 +21,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/admin/sign-in', [LoginController::class, 'index']);
+Route::post('/admin/sign-in', [LoginController::class, 'authenticate']);
 
 Route::get('/admin/register', [RegisterController::class, 'index']);
 Route::post('/admin/register', [RegisterController::class, 'store']);

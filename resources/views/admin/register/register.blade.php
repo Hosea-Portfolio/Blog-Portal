@@ -13,158 +13,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <style>
-        body {
-            color: #000;
-            overflow-x: hidden;
-            height: 100%;
-        }
-
-        input,
-        textarea {
-            background-color: #F3E5F5;
-            border-radius: 50px !important;
-            padding: 12px 15px 12px 15px !important;
-            width: 100%;
-            box-sizing: border-box;
-            border: none !important;
-            border: 1px solid #F3E5F5 !important;
-            font-size: 16px !important;
-            color: #000 !important;
-            font-weight: 400
-        }
-
-        input:focus,
-        textarea:focus {
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            border: 1px solid #D500F9 !important;
-            outline-width: 0;
-            font-weight: 400
-        }
-
-        button:focus {
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            outline-width: 0
-        }
-
-        .card {
-            border-radius: 0;
-            border: solid 1px black;
-        }
-
-        .card1 {
-            width: 50%;
-            padding: 40px 30px 10px 30px
-        }
-
-        .card2 {
-            width: 50%;
-            background-image: linear-gradient(to right, #FFD54F, #D500F9)
-        }
-
-        #logo {
-            width: 70px;
-            height: 60px
-        }
-
-        .heading {
-            margin-bottom: 60px !important
-        }
-
-        ::placeholder {
-            color: #000 !important;
-            opacity: 1
-        }
-
-        :-ms-input-placeholder {
-            color: #000 !important
-        }
-
-        ::-ms-input-placeholder {
-            color: #000 !important
-        }
-
-        .form-control-label {
-            font-size: 12px;
-            margin-left: 15px
-        }
-
-        .msg-info {
-            padding-left: 15px;
-            margin-bottom: 30px
-        }
-
-        .btn-color {
-            border-radius: 50px;
-            color: #fff;
-            background-color: black;
-            padding: 15px;
-            cursor: pointer;
-            border: none !important;
-            margin-top: 40px
-        }
-
-        .btn-color:hover {
-            color: #fff;
-            background-image: linear-gradient(to right, #D500F9, #FFD54F)
-        }
+    @include('css.admin.registration')
 
 
-        a {
-            color: #000
-        }
-
-        a:hover {
-            color: #000
-        }
-
-        .bottom {
-            width: 100%;
-            margin-top: 50px !important
-        }
-
-        .sm-text {
-            font-size: 15px
-        }
-
-
-
-        @media screen and (max-width: 992px) {
-            .card1 {
-                width: 100%;
-                padding: 40px 30px 10px 30px
-            }
-
-            .card2 {
-                width: 100%
-            }
-
-            .right {
-                margin-top: 100px !important;
-                margin-bottom: 100px !important
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 10px !important
-            }
-
-            .card2 {
-                padding: 50px
-            }
-
-            .right {
-                margin-top: 50px !important;
-                margin-bottom: 50px !important
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -175,25 +26,59 @@
                     <div class="row justify-content-center my-auto">
                         <div class="col-md-8 col-10 my-5">
 
-                            <h6 class="msg-info">Please login to your account</h6>
+                            <h6 class="msg-info">Create your admin account</h6>
                             <form action="/admin/register" method="post">
                                 @csrf
                                 <div class="form-group"> <label class="form-control-label text-muted">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control">
+                                    <input type="text" id="name" name="name"
+                                        class="form-control  @error('name') is-invalid @enderror"
+                                        value="{{ old('name') }}">
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group"> <label class="form-control-label text-muted">Email</label>
-                                    <input type="email" id="email" name="email" class="form-control">
+                                    <input type="email" id="email" name="email"
+                                        class="form-control @error('email') is-invalid @enderror"
+                                        value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group"> <label class="form-control-label text-muted">Username</label>
-                                    <input type="text" id="username" name="username" class="form-control">
+                                    <input type="text" id="username" name="username"
+                                        class="form-control  @error('username') is-invalid @enderror"
+                                        value="{{ old('username') }}">
+                                    @error('username')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group"> <label class="form-control-label text-muted">Password</label>
-                                    <input type="password" id="password" name="password" class="form-control">
+                                    <input type="password" id="password" name="password"
+                                        class="form-control @error('password') is-invalid @enderror"
+                                        value="{{ old('password') }}">
+                                    @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group"> <label class="form-control-label text-muted">Confirm
                                         Password</label>
-                                    <input type="password" id="confirmpassword" name="confirmpassword"
-                                        class="form-control">
+                                    <input type="password" id="password_confirmation" name="password_confirmation"
+                                        class="form-control @error('password') is-invalid @enderror"
+                                        value="{{ old('password_confirmation') }}">
+                                    @error('password_confirmation')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="row justify-content-center my-3 px-3"> <input type="submit"
                                         class="btn-block btn-color" value="Register">
@@ -205,14 +90,7 @@
                     <a href="/admin/sign-in">Back to Login</a>
                 </div>
                 <div class="card card2">
-                    <div class="my-auto mx-md-5 px-md-5 right">
-                        <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Lorem
-                            ipsum
-                            dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut
-                            aliquip ex ea commodo consequat.</small>
-                    </div>
+                    <img src="/5342597.jpg" style="object-fit: cover; height:100%;width:100%;">
                 </div>
             </div>
         </div>

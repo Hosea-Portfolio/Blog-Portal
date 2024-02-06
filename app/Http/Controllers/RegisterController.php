@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -15,6 +16,17 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        return $request->all();
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:255|unique:users,name',
+            'email' => 'required|email:dns|unique:users,email',
+            'username' => 'required|max:255|unique:users,username',
+            'password' => 'required|confirmed',
+        ]);
+        $validatedData['role_id'] = 2;
+
+        User::create($validatedData);
+
+        return redirect('/admin/sign-in');
     }
 }
