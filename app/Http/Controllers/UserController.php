@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -79,9 +80,12 @@ class UserController extends Controller
     public function edit(User $user)
     {
 
-
+        if (Hash::needsRehash($user->password)) {
+            $password = Hash::make($user->password);
+        }
         return view('admin.users.edit', [
             'user' => $user,
+            'password' => $password,
             'roles' => Role::all(),
             'active' => 'Edit User'
 
