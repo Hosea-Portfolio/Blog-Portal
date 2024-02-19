@@ -16,4 +16,22 @@
             }
         }
     }
+
+    function show() {
+        var input = document.querySelector(".input");
+        input.classList.add("show");
+        var search = document.querySelector(".icon-search");
+        search.classList.add("disable");
+    }
+
+    function hide() {
+        var input = document.querySelector(".input");
+        input.classList.remove("show");
+        input.value = "";
+        var search = document.querySelector(".icon-search");
+        search.classList.remove("disable");
+
+
+
+    }
 </script>

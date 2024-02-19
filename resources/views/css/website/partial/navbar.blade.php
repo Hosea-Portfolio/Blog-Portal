@@ -44,7 +44,7 @@
         transition: .5s;
     }
 
-    .box:hover input {
+    .box .input.show {
         width: 250px;
         border-radius: 10px;
     }
@@ -55,7 +55,7 @@
         transition: .2s;
     }
 
-    .box:hover .icon-search {
+    .box .icon-search.disable {
         opacity: 0;
         z-index: -1;
     }
@@ -127,7 +127,7 @@
             margin: 0 50px
         }
 
-        .box:hover input {
+        .box .input.show {
             width: 250px;
         }
     }
@@ -137,7 +137,7 @@
             margin: 0 30px
         }
 
-        .box:hover input {
+        .box .input.show {
             width: 250px;
         }
     }
@@ -147,7 +147,7 @@
             margin: 0 20px
         }
 
-        .box:hover input {
+        .box .input.show {
             width: 150px;
         }
     }
@@ -185,7 +185,7 @@
             margin: 0 10px
         }
 
-        .box:hover input {
+        .box .input.show {
             width: 220px;
         }
     }

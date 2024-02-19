@@ -13,10 +13,11 @@
                 @include('fa.github')
             </a>
             <span>|</span>
-            <div class="box">
+            <div class="box" onclick="show()" style="cursor: pointer">
                 <form name="search" action="/" method="GET">
-                    <input type="text" class="input" name="search" value="{{ request('search') }}"
-                        onmouseout="this.value = ''; this.blur();">
+                    <input type="text" class="input" name="search"
+                        value="{{ Request::is('/?search=*') ? request('search') : '' }}"
+                        onmouseout="hide();this.blur();">
                 </form>
                 <div class="icon-search">
                     @include('fa.search')
