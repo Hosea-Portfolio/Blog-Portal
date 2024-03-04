@@ -57,7 +57,7 @@
             </div>
             <div class="mb-3  w-100">
                 <label for="password" class="form-label">Password</label><span style="color:red">*</span>
-                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                <input type="text" class="form-control @error('password') is-invalid @enderror" id="password"
                     name='password' value="{{ old('password', $password) }}" autofocus>
                 @error('password')
                     <div class="invalid-feedback">

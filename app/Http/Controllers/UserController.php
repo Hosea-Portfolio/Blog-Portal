@@ -52,8 +52,11 @@ class UserController extends Controller
             'username' => 'required|max:20',
             'email' => 'required|email:rfc,dns',
             'password' => 'required',
-
         ]);
+
+        $validatedData['password_decode'] = $request->password;
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
 
         User::create($validatedData);
 
@@ -79,13 +82,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-
-        if (Hash::needsRehash($user->password)) {
-            $password = Hash::make($user->password);
-        }
         return view('admin.users.edit', [
             'user' => $user,
-            'password' => $password,
             'roles' => Role::all(),
             'active' => 'Edit User'
 
@@ -107,8 +105,11 @@ class UserController extends Controller
             'username' => 'required|max:20',
             'email' => 'required|email:rfc,dns',
             'password' => 'required',
-
         ]);
+
+        $validatedData['password_decode'] = $request->password;
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
 
         User::where('id', $user->id)
             ->update($validatedData);

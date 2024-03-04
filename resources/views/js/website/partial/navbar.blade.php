@@ -30,8 +30,5 @@
         input.value = "";
         var search = document.querySelector(".icon-search");
         search.classList.remove("disable");
-
-
-
     }
 </script>

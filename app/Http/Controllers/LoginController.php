@@ -18,8 +18,9 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'username' => 'required',
-            'password' => 'required'
+            'password_encode' => 'required'
         ]);
+
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -27,5 +28,13 @@ class LoginController extends Controller
         }
 
         return back()->with('loginError', 'Login Failed');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/admin/sign-in');
     }
 }

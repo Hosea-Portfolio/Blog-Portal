@@ -38,8 +38,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group"> <label class="form-control-label text-muted">Password</label>
-                                    <input type="password" id="password"
-                                        name="password @error('password') is-invalid @enderror"
+                                    <input type="password" id="password" name="password"
                                         class="form-control @error('password') is-invalid @enderror"
                                         value="{{ old('password') }}" autofocus>
                                     @error('password')
@@ -59,8 +58,9 @@
                         </div>
                     </div>
                     <div class="bottom text-center mb-5">
-                        <p href="#" class="sm-text mx-auto mb-3">Don't have an account ? <a
-                                href="/admin/register">Create new</a></p>
+                        <p class="sm-text mx-auto mb-3">Don't have an account ? <a href="/admin/register"
+                                class="text-primary">Create new</a>
+                        </p>
                     </div>
                 </div>
                 <div class="card card2">

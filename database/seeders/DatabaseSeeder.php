@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'testuser',
             'email' => 'test@gmail.com',
             'password' => bcrypt('password'),
+            'password_decode' => 'password',
             'active' => 1
         ]);
 

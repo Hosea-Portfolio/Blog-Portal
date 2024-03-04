@@ -80,14 +80,13 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="row justify-content-center my-3 px-3"> <input type="submit"
-                                        class="btn-block btn-color" value="Register">
-
-                                </div>
+                                <div class="row justify-content-center my-3 px-3"> <button
+                                        class="btn-block btn-color">Register
+                                    </button> </div>
                             </form>
                         </div>
                     </div>
-                    <a href="/admin/sign-in">Back to Login</a>
+                    <a href="/admin/sign-in" class="text-primary">Back to Login</a>
                 </div>
                 <div class="card card2">
                     <img src="/5342597.jpg" style="object-fit: cover; height:100%;width:100%;">

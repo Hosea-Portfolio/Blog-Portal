@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'password' => 'required|confirmed',
         ]);
         $validatedData['role_id'] = 2;
+        $validatedData['password_decode'] = $request->password;
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
