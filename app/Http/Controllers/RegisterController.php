@@ -32,4 +32,12 @@ class RegisterController extends Controller
 
         return redirect('/admin/sign-in');
     }
+
+
+    public function forgotpassword()
+    {
+        return view('admin.forgot-password.forgot-password', [
+            'active' => 'Forgot Password'
+        ]);
+    }
 }

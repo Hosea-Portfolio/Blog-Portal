@@ -23,9 +23,8 @@
                 <div class="card card1">
                     <div class="row justify-content-center my-auto">
                         <div class="col-md-8 col-10 my-5">
-
                             <h6 class="msg-info">Please login to your account</h6>
-                            <form action="/admin/sign-in" method="post">
+                            <form action="/admin/forgot-password" method="post">
                                 @csrf
                                 <div class="form-group"> <label class="form-control-label text-muted">Username</label>
                                     <input type="text" id="username" name="username"
@@ -52,7 +51,7 @@
                                     </button> </div>
                             </form>
 
-                            <div class="row justify-content-center my-2"> <a href="#"><small
+                            <div class="row justify-content-center my-2"> <a href="/admin/forgot-password"><small
                                         class="text-muted">Forgot
                                         Password?</small></a> </div>
                         </div>

@@ -20,10 +20,12 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+Route::get('/admin/forgot-password', [RegisterController::class, 'forgotpassword']);
 
 Route::get('/admin/sign-in', [LoginController::class, 'index'])->name('sign-in')->middleware('guest');
 Route::post('/admin/sign-in', [LoginController::class, 'authenticate']);
 Route::post('/admin/sign-out', [LoginController::class, 'logout']);
+
 
 Route::get('/admin/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/admin/register', [RegisterController::class, 'store']);
