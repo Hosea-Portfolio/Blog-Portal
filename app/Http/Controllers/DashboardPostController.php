@@ -20,10 +20,9 @@ class DashboardPostController extends Controller
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' =>   Post::all(),
-            'active' => 'Post Module'
-            // 'posts' => Post::where('user_id', auth()->user()->id)->get()
-
+            // 'posts' =>   Post::all(),
+            'active' => 'Post Module',
+            'posts' => Post::where('user_id', auth()->user()->id)->get()
         ]);
     }
 

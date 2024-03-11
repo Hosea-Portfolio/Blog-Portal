@@ -21,6 +21,9 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/admin/forgot-password', [RegisterController::class, 'forgotpassword']);
+Route::post('/admin/forgot-password', [RegisterController::class, 'forgotpasswordpost']);
+Route::get('/admin/reset-password/{token}', [RegisterController::class, 'resetpassword']);
+Route::post('/admin/reset-password', [RegisterController::class, 'resetpasswordpost']);
 
 Route::get('/admin/sign-in', [LoginController::class, 'index'])->name('sign-in')->middleware('guest');
 Route::post('/admin/sign-in', [LoginController::class, 'authenticate']);

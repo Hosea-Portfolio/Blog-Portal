@@ -35,24 +35,26 @@
                         Category
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('admin/dashboard/users*') ? 'bg-warning' : '' }}"
-                        href="/admin/dashboard/users">
-                        <svg class="bi">
-                            <use xlink:href="#people" />
-                        </svg>
-                        User Management
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('admin/dashboard/roles*') ? 'bg-warning' : '' }}"
-                        href="/admin/dashboard/roles">
-                        <svg class="bi">
-                            <use xlink:href="#people" />
-                        </svg>
-                        Role Management
-                    </a>
-                </li>
+                @if (Auth::user()->role_id == 1)
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('admin/dashboard/users*') ? 'bg-warning' : '' }}"
+                            href="/admin/dashboard/users">
+                            <svg class="bi">
+                                <use xlink:href="#people" />
+                            </svg>
+                            User Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('admin/dashboard/roles*') ? 'bg-warning' : '' }}"
+                            href="/admin/dashboard/roles">
+                            <svg class="bi">
+                                <use xlink:href="#people" />
+                            </svg>
+                            Role Management
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <form action="/admin/sign-out" method="post">
                         @csrf
