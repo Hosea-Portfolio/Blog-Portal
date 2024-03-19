@@ -39,24 +39,18 @@
                             </div>
                         </div>
                         <div class="post-footer">
-
-                            {{-- Code untuk like satu kali attempt per sesi --}}
-                            {{-- @if (Session::get('sesi_token') == $syslog->session_id)
-                            <a href='#'class="icon-post-footer"
-                                style="fill: :red">@include('fa.love')</a>
-                        @else
-                            <a
-                                href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.love')</a>
-                        @endif --}}
-                            {{-- Code untuk like satu kali attempt per sesi --}}
-
                             <a
                                 href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.like')</a>
                             <span>{{ $post->like_counter }}</span>
                             <a
                                 href='{{ url('/dislike', $post->id) }}'class="icon-post-footer">@include('fa.dislike')</a>
                             <span>|</span>
-                            <a class="icon-post-footer">@include('fa.facebook')</a>
+                            <a href='https://www.facebook.com/sharer/sharer.php?u=url=http://127.0.0.1:8000/{{ $post->slug }}'
+                                class="icon-post-footer">@include('fa.facebook')</a>
+                            <a href='https://www.linkedin.com/sharing/share-offsite/?url=http://127.0.0.1:8000/{{ $post->slug }}'
+                                class="icon-post-footer">@include('fa.linkedin')</a>
+                            <a href="https://x.com/intent/tweet?text={{ $post->title }} http://127.0.0.1:8000/{{ $post->slug }}"
+                                class="icon-post-footer">@include('fa.x-white')</a>
                             <a class="icon-post-footer">@include('fa.link')</a>
                         </div>
                     </div>

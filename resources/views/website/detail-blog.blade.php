@@ -64,9 +64,12 @@
                 </div>
             </div>
             <div class="icon-bar">
-                <a href="#" class="facebook">@include('fa.facebook-white')</a>
-                <a href="#" class="twitter">@include('fa.x')</i></a>
-                <a href="#" class="linkedin">@include('fa.linkedin')</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=url=http://127.0.0.1:8000/{{ $post->slug }}"
+                    class="facebook">@include('fa.facebook-white')</a>
+                <a href="https://x.com/intent/tweet?text={{ $post->title }} http://127.0.0.1:8000/{{ $post->slug }}"
+                    class="twitter">@include('fa.x')</i></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=http://127.0.0.1:8000/{{ $post->slug }}"
+                    class="linkedin">@include('fa.linkedin-in')</a>
             </div>
         </div>
 

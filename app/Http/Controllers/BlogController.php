@@ -33,25 +33,6 @@ class BlogController extends Controller
 
     public function like($id)
     {
-
-        // codingan like satu kali attempt per session
-        // $data = Post::find($id);
-
-        // $data->like_counter += 1;
-        // $data->save();
-
-        // Session::put('sesi_token', Session::getId());
-
-        // SystemLog::create([
-        //     'posts_id' => $id,
-        //     'session_id' => Session::getId(),
-        // ]);
-
-
-        // $syslog = SystemLog::where('posts_id', '=', $id)->first();
-        // return  Redirect::to('/' . "#" . $id)->with(['syslog' => $syslog]);
-        // codingan like satu kali attempt per session
-
         $data = Post::find($id);
 
         $data->like_counter += 1;
