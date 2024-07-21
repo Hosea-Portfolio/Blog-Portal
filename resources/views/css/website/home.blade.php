@@ -5,10 +5,14 @@
     }
 
     .blog-container {
+
+        margin: 0 220px;
+    }
+
+    .blog-section {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 20px;
-        margin: 0 220px;
     }
 
     .card-blog {
@@ -98,6 +102,9 @@
     @media screen and (max-width: 700px) {
         .blog-container {
             margin: 0 10px;
+        }
+
+        .blog-section {
             grid-template-columns: 1fr 1fr;
         }
     }

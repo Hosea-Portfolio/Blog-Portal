@@ -2,7 +2,9 @@
 
 @extends('css.admin.dashboard')
 @section('container')
-    <h2>Posts</h2>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Posts</h1>
+    </div>
     <div>
         <a class="btn btn-primary" href="/admin/dashboard/posts/create"><span class="bi bi-plus"></span> Add Blog Post</a>
     </div>

@@ -5,7 +5,7 @@
         </div>
         <div class="topnav" id="myTopnav">
             <a href="/" class="{{ $active === 'Blog Home' ? 'active' : '' }}">All Blog</a>
-            <a href="#news">Category</a>
+            <a href="/category" class{{ $active ? 'active' : '' }}>Category</a>
             <a href="#about">About</a>
         </div>
         <div class="flex-icon">

@@ -15,6 +15,24 @@
 
     <div class="container">
         <div class="blog-container">
+
+            <div
+                style="display: flex;
+    padding: 32px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 16px;
+    background: #f1f5f9;
+    text-align: center;
+    margin-bottom:20px;">
+                <h1>{{ $category_name->name }}</h1>
+                <div>
+                    <span>{{ $posts->count() }}</span> hasil ditemukan
+                </div>
+            </div>
             <div class="blog-section">
                 @if ($posts->count())
                     @foreach ($posts as $post)
@@ -60,6 +78,7 @@
                     <h1> Not Found </h1>
                 @endif
             </div>
+
         </div>
     </div>
 

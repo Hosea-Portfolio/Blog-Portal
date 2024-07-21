@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CategoryBlogController;
 use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::get('/admin/dashboard/categories/publish/{id}', [CategoryController::clas
 
 
 Route::get('/', [BlogController::class, 'index']);
+Route::get('/category', [CategoryBlogController::class, 'index']);
+Route::get('/category/{slug}', [CategoryBlogController::class, 'show']);
 Route::get('/like/{id}', [BlogController::class, 'like']);
 Route::get('/dislike/{id}', [BlogController::class, 'dislike']);
 Route::get('/{slug}', [BlogController::class, 'show']);

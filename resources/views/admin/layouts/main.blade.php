@@ -26,7 +26,20 @@
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
         }
+
+        h2 {
+            font-size: 2rem !important;
+            font-weight: 500 !important
+        }
+
+        [type=submit],
+        button {
+
+            background-color: var(--bs-btn-bg) !important;
+        }
     </style>
+    @notifyCss
+
 </head>
 
 <body>
@@ -119,9 +132,11 @@
 
     @include('admin.layouts.header')
     <div class="container-fluid">
+
         <div class="row h-100">
             @include('admin.layouts.side')
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <x-notify::notify />
                 @yield('container')
             </main>
         </div>
@@ -132,7 +147,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-
+    @notifyJs
 </body>
 
 </html>
