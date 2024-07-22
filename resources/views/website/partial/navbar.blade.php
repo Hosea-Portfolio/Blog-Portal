@@ -1,11 +1,11 @@
 <header>
     <div class="flex-nav">
         <div class="logo">
-            <img src="dummy-logo-1b.png" class="logo-image">
+            <img src="{{ $slug ? 'http://127.0.0.1:8000/dummy-logo-1b.png' : 'dummy-logo-1b.png' }}" class="logo-image">
         </div>
         <div class="topnav" id="myTopnav">
             <a href="/" class="{{ $active === 'Blog Home' ? 'active' : '' }}">All Blog</a>
-            <a href="/category" class{{ $active ? 'active' : '' }}>Category</a>
+            <a href="/category" class='{{ $active ? 'active' : '' }}'>Category</a>
             <a href="#about">About</a>
         </div>
         <div class="flex-icon">

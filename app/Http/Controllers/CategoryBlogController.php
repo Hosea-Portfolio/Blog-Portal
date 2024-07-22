@@ -13,6 +13,7 @@ class CategoryBlogController extends Controller
         $categories = Category::all();
         return view('website.categories', [
             'categories' => $categories,
+            'slug' => "",
             'active' => 'Categories'
 
         ]);
@@ -21,11 +22,12 @@ class CategoryBlogController extends Controller
     public function show($slug)
     {
         $posts = Post::join('category', 'category.id', '=', 'posts.category_id')->where('category.slug', '=', $slug)->get();
-        $category_name = Category::where('slug','=',$slug)->first();
+        $category_name = Category::where('slug', '=', $slug)->first();
         return view('website.detail-category', [
             'posts' => $posts,
             'category_name' => $category_name,
-            'active' => 'Category Module'
+            'active' => 'Category Module',
+            'slug' => $slug
         ]);
     }
 }

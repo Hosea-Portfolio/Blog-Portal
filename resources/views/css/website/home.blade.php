@@ -80,6 +80,43 @@
         margin-right: 20px
     }
 
+
+    /* detail-category */
+    .banner-title-detail-category {
+        display: flex;
+        padding: 32px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 4px;
+        align-self: stretch;
+        border-radius: 16px;
+        background: #f1f5f9;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .filter {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+    .filter-item {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .sort {
+        width: 220px;
+        padding: 8px;
+
+    }
+
+    /* detail-category */
+
     @media screen and (max-width: 1250px) {
         .blog-container {
             margin: 0 50px

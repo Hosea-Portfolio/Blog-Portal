@@ -16,21 +16,19 @@
     <div class="container">
         <div class="blog-container">
 
-            <div
-                style="display: flex;
-    padding: 32px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 4px;
-    align-self: stretch;
-    border-radius: 16px;
-    background: #f1f5f9;
-    text-align: center;
-    margin-bottom:20px;">
+            <div class="banner-title-detail-category">
                 <h1>{{ $category_name->name }}</h1>
                 <div>
                     <span>{{ $posts->count() }}</span> hasil ditemukan
+                </div>
+            </div>
+            <div class="filter">
+                <div class="filter-item">
+                    <label>Sort By</label>
+                    <select class="sort" id="sortBy">
+                        <option name="asc">A - Z</option>
+                        <option name="desc">Z - A</option>
+                    </select>
                 </div>
             </div>
             <div class="blog-section">

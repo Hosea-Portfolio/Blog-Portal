@@ -14,7 +14,8 @@ class BlogController extends Controller
     {
         return view('website.home', [
             'posts' => Post::latest()->filter(request(['search']))->get(),
-            'active' => 'Blog Home'
+            'active' => 'Blog Home',
+            'slug' => "",
 
         ]);
     }
@@ -27,7 +28,9 @@ class BlogController extends Controller
         return view('website.detail-blog', [
             'post' =>   $post,
             'popular' => $popular,
-            'active' => $post->title
+            'active' => $post->title,
+            'slug' => "",
+
         ]);
     }
 
