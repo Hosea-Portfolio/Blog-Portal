@@ -40,15 +40,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
-            'name' => 'Web Programming',
-            'slug' => 'web-programming',
+            'name' => 'Daily Life',
+            'slug' => 'daily-life',
+            'image' => 'https://picsum.photos/400/700.jpg',
             'active' => 1
 
         ]);
 
         Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal',
+            'name' => 'Photography',
+            'slug' => 'photography',
+            'image' => 'https://picsum.photos/400/600.jpg',
             'active' => 1
 
         ]);

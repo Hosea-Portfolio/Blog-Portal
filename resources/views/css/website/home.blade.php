@@ -32,6 +32,10 @@
         height: 100%
     }
 
+    #copy {
+        cursor: pointer;
+    }
+
     .content-blog {
         display: flex;
         flex-direction: column;

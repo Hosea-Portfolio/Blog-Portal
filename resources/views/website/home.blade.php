@@ -21,13 +21,8 @@
                         <div class="card-blog" id="{{ $post->id }}">
                             <div class="card-content">
                                 <div class="image-blog">
-                                    @if ($post->image == null)
-                                        <img src="https://source.unsplash.com/400x600?{{ $post->category->name }}"
-                                            class="img-thumbnail" alt="{{ $post->category->name }}">
-                                    @else
-                                        <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail"
-                                            alt="{{ $post->category->name }}">
-                                    @endif
+                                    <img src="{{ $post->image }}" class="img-thumbnail"
+                                        alt="{{ $post->category->name }}">
                                 </div>
                                 <div class="content-blog">
                                     <span class="category">{{ $post->category->name }}</span>
@@ -42,7 +37,7 @@
                             <div class="post-footer">
                                 <a
                                     href='{{ url('/like', $post->id) }}'class="icon-post-footer">@include('fa.like')</a>
-                                <span>{{ $post->like_counter }}</span>
+                                <span>{{ $post->like_counter != 0 ? $post->like_counter : '' }}</span>
                                 <a
                                     href='{{ url('/dislike', $post->id) }}'class="icon-post-footer">@include('fa.dislike')</a>
                                 <span>|</span>
@@ -52,7 +47,8 @@
                                     class="icon-post-footer">@include('fa.linkedin')</a>
                                 <a href="https://x.com/intent/tweet?text={{ $post->title }} http://127.0.0.1:8000/{{ $post->slug }}"
                                     class="icon-post-footer">@include('fa.x-white')</a>
-                                <a class="icon-post-footer">@include('fa.link')</a>
+                                <a id="copy" data-clipboard-text = "http://127.0.0.1:8000/{{ $post->slug }}"
+                                    class="icon-post-footer">@include('fa.link')</a>
                             </div>
                         </div>
                     @endforeach
@@ -65,5 +61,17 @@
 
     @include('js.website.partial.navbar')
 </body>
+
+<script>
+    const copy = document.getElementById('copy');
+
+    copy.addEventListener('click', () => {
+        const text = copy.getAttribute('data-clipboard-text');
+        navigator.clipboard.writeText(text)
+    })
+</script>
+
+
+
 
 </html>

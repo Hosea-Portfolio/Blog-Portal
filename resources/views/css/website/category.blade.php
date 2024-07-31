@@ -18,6 +18,7 @@
 
     .img-thumbnail {
         width: 100%;
+        height: 400px !important;
         object-fit: cover;
         height: 100%
     }
@@ -70,7 +71,7 @@
 
 
     @media screen and (max-width: 700px) {
-        .blog-container {
+        .category-container {
             margin: 0 10px;
             grid-template-columns: 1fr 1fr;
         }

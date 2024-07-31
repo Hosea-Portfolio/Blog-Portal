@@ -18,13 +18,7 @@
     <div class="container">
         <div class="banner">
             <div class="banner-detail-blog">
-                @if ($post->image == null)
-                    <img src="https://source.unsplash.com/1200x600?{{ $post->category->name }}" class="img-banner"
-                        alt="{{ $post->category->name }}">
-                @else
-                    <img src="{{ asset('storage/' . $post->image) }}" class="img-banner"
-                        alt="{{ $post->category->name }}">
-                @endif
+                <img src="{{ $post->image }}" class="img-banner" alt="{{ $post->category->name }}">
                 <div class="content-title">
                     <span class="post-category"><a href='#'
                             class="category">{{ $post->category->name }}</a></span>
@@ -45,13 +39,14 @@
                     <h3>Popular Issues</h3>
                     @foreach ($popular as $pop)
                         <div class="blog-popular">
-                            @if ($post->image == null)
+                            {{-- @if ($post->image == null)
                                 <img src="https://source.unsplash.com/1200x600?{{ $pop->category->name }}"
                                     class="img-banner" alt="{{ $pop->category->name }}">
                             @else
                                 <img src="{{ asset('storage/' . $pop->image) }}" class="img-banner"
                                     alt="{{ $pop->category->name }}">
-                            @endif
+                            @endif --}}
+                            <img src="{{ $pop->image }}" class="img-banner" alt="{{ $pop->category->name }}">
 
                             <div class="content-popular">
                                 <a href="{{ $pop->slug }}">

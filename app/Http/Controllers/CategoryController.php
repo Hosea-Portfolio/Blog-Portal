@@ -89,7 +89,7 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'name' => 'required|max:255|unique:category',
+            'slug' => 'required|max:255|unique:category',
 
         ]);
 

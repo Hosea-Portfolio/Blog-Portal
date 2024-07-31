@@ -19,7 +19,7 @@
                 <a href="/category/{{ $category->slug }}">
                     <div class='card-category'>
                         <div class="category-image">
-                            <img src="5342597.jpg" class="img-thumbnail" alt="{{ $category->name }}">
+                            <img src="{{ $category->image }}" class="img-thumbnail" alt="{{ $category->name }}">
                             <div class="card-over-content">
                                 <h5>{{ $category->name }}</h5>
                             </div>
