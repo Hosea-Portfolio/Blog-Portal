@@ -58,15 +58,9 @@
     .article-body {
         margin: 0 220px;
         display: flex;
-        gap: 20px
+        gap: 20px;
+        justify-content: space-between
     }
-
-    ;
-
-    .article-body .body {
-        width: 70%;
-    }
-
 
     .icon-bar {
         position: fixed;
@@ -104,7 +98,12 @@
         color: white;
     }
 
-    .article-body .popular-issues {
+    .body {
+        width: 60%
+    }
+
+
+    .popular-issues {
         width: 30%
     }
 
@@ -156,6 +155,11 @@
         .icon-bar a {
             padding: 10px;
             font-size: 8px;
+        }
+
+        .article-body .popular-issues,
+        .body {
+            width: 100%;
         }
     }
 
